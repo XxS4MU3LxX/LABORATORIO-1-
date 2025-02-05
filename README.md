@@ -71,6 +71,8 @@ plt.show()
 
 Se visualiza la señal ECG mediante una gráfica donde el eje X representa el tiempo en segundos y el eje Y la amplitud en milivoltios. Se agregan etiquetas, una leyenda y una cuadrícula para mejorar la interpretación de los datos.
 
+En el codigo se utilizo la siguiente funcion ```plt.xlim([1000, (t[-1] * 0.0004) + 1000])``` con el fin de tomar una porcion total de la grafica general para graficar una señal de electrocardiograma mas legible, se inicio desde un punto arbirtrario de la señal y se amplio la escala para poder divisar claramente la señal proporcionada por lo sensores del estudio de apnea.
+
 # Cálculo de estadísticos manualmente
 ```
 mediaMan = 0
