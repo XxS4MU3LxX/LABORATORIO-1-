@@ -1,7 +1,9 @@
-# LABORATORIO-1-
-# Laboratorio 1
+# LABORATORIO 1
+
 ***Luz Marina Valderrama-5600741***
+
 ***Shesly Nicole Colorado - 5600756***
+
 ***Samuel Esteban Fonseca Luna - 5600808***
 
 El siguiente codigo tiene la funcion de interpretar una serie de datos extraidos de la base de datos physionet. Los datos utilizados pertenecen a un electrocardiograma de estudio de apnea correspondiente (https://physionet.org/content/apnea-ecg/1.0.0/), los archivos utilizados con el siguiente codigo explicado, estan en este repositorio.
@@ -145,6 +147,7 @@ SNR (dB)
 ![image](https://github.com/user-attachments/assets/da5257f5-beef-4639-ba65-ced1b4d0bfb2)
 
 Donde 
+
 _Pseñal_ es la potencia de la señal.
  
 _Pruido_ es la potencia del ruido.
