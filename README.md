@@ -4,7 +4,7 @@
 ***Shesly Nicole Colorado - 5600756***
 ***Samuel Esteban Fonseca Luna - 5600808***
 
-
+El siguiente codigo tiene la funcion de interpretar una serie de datos extraidos de la base de datos physionet. Los datos utilizados pertenecen a un electrocardiograma de estudio de apnea correspondiente (https://physionet.org/content/apnea-ecg/1.0.0/), los archivos utilizados con el siguiente codigo explicado, estan en este repositorio.
 
   
 ```
@@ -31,7 +31,7 @@ def cargarHea(nombre):
     return fs, g, base
 ```
 
-El código define dos funciones para la carga de datos. cargarDat(nombre) abre un archivo .dat y extrae la señal ECG en formato binario, devolviendo un arreglo de valores enteros de 16 bits. cargarHea(nombre) lee el archivo .hea asociado, extrayendo información clave como la frecuencia de muestreo, la ganancia y la línea base de la señal.
+El código define dos funciones para la carga de datos. cargarDat(nombre) abre un archivo .dat y extrae la señal ECG en formato binario, devolviendo un arreglo de valores enteros de 16 bits. cargarHea(nombre) lee el archivo .hea asociado que se relaciona con el encabezado de los datos extraidos en el .dat, extrayendo información clave como la frecuencia de muestreo, la ganancia y la línea base de la señal.
 
 # Cargar archivos
 ```
@@ -132,6 +132,23 @@ plt.show()
 Se calcula la Función de Distribución Acumulada (CDF), ordenando los valores de la señal ECG de menor a mayor y asignando probabilidades acumuladas. Luego, se grafica para analizar la distribución de los datos y su comportamiento.
 
 # Función para añadir ruido
+
+El SNR (del inglés Signal-to-Noise Ratio) es una medida que compara el nivel de una señal con el nivel de ruido de fondo en un sistema. Se expresa como la relación entre la potencia de la señal y la potencia del ruido, y se mide en decibelios (dB).
+### Importancia del SNR:
+- Un SNR alto indica que la señal es más fuerte en comparación con el ruido, lo que generalmente resulta en una mejor calidad de la señal.
+
+- Un SNR bajo significa que el ruido es más prominente, lo que puede degradar la calidad de la señal y dificultar su interpretación o procesamiento.
+
+#### Fórmula:
+SNR (dB)
+
+![image](https://github.com/user-attachments/assets/da5257f5-beef-4639-ba65-ced1b4d0bfb2)
+
+Donde 
+_Pseñal_ es la potencia de la señal.
+ 
+_Pruido_ es la potencia del ruido.
+
 ```
 def ruido(ecg, tipo='gauss', snrDb=10):
     """Añade ruido a la señal y calcula el SNR"""
@@ -259,9 +276,17 @@ print(f"SNR con ruido Gauss: {snrGauss:.2f} dB")
 print(f"SNR con ruido Impulso: {snrImp:.2f} dB")
 print(f"SNR con ruido Artefacto: {snrArt:.2f} dB")
 ```
- 
-![Image](https://github.com/user-attachments/assets/0baa2f6a-8ca7-4d13-8d2d-42765804c7a9)
+
+![image](https://github.com/user-attachments/assets/1522102f-3fbd-484e-ad14-edc54aaadaeb)
+
 
 Se imprimen en pantalla los valores de la media, la desviación estándar y el coeficiente de variación calculados manualmente y con funciones de numpy. Además, se muestran los valores del SNR para cada tipo de ruido añadido, permitiendo comparar la relación señal-ruido en cada caso.
+# Conclusiones
+Como conclusiones encontramos 
+1. La media y la desviación estándar permiten caracterizar la señal ECG en términos de amplitud y variabilidad.
+2. El SNR nos indica qué tanto ruido afecta la señal; el ruido de artefacto fue el mas dificil, ya que su frecuencia es similar a la de la señal ECG.
+3. El uso de histogramas y la CDF nos da una visión clara de la distribución de la amplitud de la señal.
+
+
  
 
